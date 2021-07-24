@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import fire from "./../../config/fire";
+import "./FormLogin.css";
 
 class FormLogin extends Component {
   constructor(props) {
@@ -43,8 +44,8 @@ class FormLogin extends Component {
   }
   render() {
     return (
-      <div>
-        <form>
+      <div className="container">
+        <form className="form-control">
           <input
             type="email"
             id="email"
