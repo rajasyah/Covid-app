@@ -1,11 +1,16 @@
+import { Component } from "react";
 import styles from "./App.module.css";
 
-function App() {
-  return (
-    <div className={styles.container}>
-      <h1>Hello</h1>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className={styles.container}>
+        <Card />
+        <CountryPicker />
+        <Chart />
+      </div>
+    );
+  }
 }
 
 export default App;
