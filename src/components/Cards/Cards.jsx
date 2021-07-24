@@ -20,7 +20,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
         >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Infected
+              Positif
             </Typography>
             <Typography variant="h5">
               <Countup
@@ -34,7 +34,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
               {new Date(lastUpdate).toDateString()}
             </Typography>
             <Typography variant="body2">
-              Number Of Active cases of COVID-19
+              Jumlah orang yang terpapar Covid-19
             </Typography>
           </CardContent>
         </Grid>
@@ -47,7 +47,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
         >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Recovered
+              Sembuh
             </Typography>
             <Typography variant="h5">
               <Countup
@@ -60,9 +60,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
             <Typography color="textSecondary">
               {new Date(lastUpdate).toDateString()}
             </Typography>
-            <Typography variant="body2">
-              Number Of Recoveries from COVID-19
-            </Typography>
+            <Typography variant="body2">Jumlah orang yang sembuh</Typography>
           </CardContent>
         </Grid>
         <Grid
@@ -74,7 +72,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
         >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Deaths
+              Meninggal
             </Typography>
             <Typography variant="h5">
               <Countup
@@ -87,9 +85,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
             <Typography color="textSecondary">
               {new Date(lastUpdate).toDateString()}
             </Typography>
-            <Typography variant="body2">
-              Number Of deaths caused by COVID-19
-            </Typography>
+            <Typography variant="body2">Jumlah Orang yang meninggal</Typography>
           </CardContent>
         </Grid>
       </Grid>
