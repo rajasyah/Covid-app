@@ -1,9 +1,13 @@
 import React from "react";
 import { Card, CardContent, Typography, Grid } from "@material-ui/core";
 import styles from "./Cards.module.css";
+import Countup from "react-countup";
 import cx from "classnames";
 
-const Cards = () => {
+const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
+  if (!confirmed) {
+    return "Loading....";
+  }
   return (
     <div className={styles.container}>
       <Grid container spacing={3} justifyContent="center">
@@ -12,14 +16,23 @@ const Cards = () => {
           component={Card}
           xs={12}
           md={3}
-          className={cx(styles.card, styles.positif)}
+          className={cx(styles.card, styles.infected)}
         >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Positif
+              Infected
             </Typography>
-            <Typography variant="h5">Data</Typography>
-            <Typography color="textSecondary">Date</Typography>
+            <Typography variant="h5">
+              <Countup
+                start={0}
+                end={confirmed.value}
+                duration={2.5}
+                separator=","
+              />
+            </Typography>
+            <Typography color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
             <Typography variant="body2">
               Number Of Active cases of COVID-19
             </Typography>
@@ -30,16 +43,25 @@ const Cards = () => {
           component={Card}
           xs={12}
           md={3}
-          className={cx(styles.card, styles.sembuh)}
+          className={cx(styles.card, styles.recovered)}
         >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Sembuh
+              Recovered
             </Typography>
-            <Typography variant="h5">Data</Typography>
-            <Typography color="textSecondary">Date</Typography>
+            <Typography variant="h5">
+              <Countup
+                start={0}
+                end={recovered.value}
+                duration={2.5}
+                separator=","
+              />
+            </Typography>
+            <Typography color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
             <Typography variant="body2">
-              Number Of Active cases of COVID-19
+              Number Of Recoveries from COVID-19
             </Typography>
           </CardContent>
         </Grid>
@@ -48,16 +70,25 @@ const Cards = () => {
           component={Card}
           xs={12}
           md={3}
-          className={cx(styles.card, styles.meninggal)}
+          className={cx(styles.card, styles.deaths)}
         >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Meninggal
+              Deaths
             </Typography>
-            <Typography variant="h5">Data</Typography>
-            <Typography color="textSecondary">Date</Typography>
+            <Typography variant="h5">
+              <Countup
+                start={0}
+                end={deaths.value}
+                duration={2.5}
+                separator=","
+              />
+            </Typography>
+            <Typography color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
             <Typography variant="body2">
-              Number Of Active cases of COVID-19
+              Number Of deaths caused by COVID-19
             </Typography>
           </CardContent>
         </Grid>
